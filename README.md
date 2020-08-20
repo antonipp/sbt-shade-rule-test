@@ -51,6 +51,8 @@ $ javap com/azure/core/http/netty/NettyAsyncHttpClientBuilder.class | grep repac
 # Nothing here
 ```
 
+Note: with `sbt-assembly` 0.14.10, the behavior of this test is the same
+
 ## Test 2 (inLibrary - "azure-storage-blob" and "netty")
 ```
     assemblyShadeRules in assembly ++= Seq(
@@ -86,6 +88,8 @@ $ jar tf target/scala-2.11/ShadeRuleTest-assembly-1.0.0.jar | grep repackaged
 $ javap com/azure/core/http/netty/NettyAsyncHttpClientBuilder.class | grep repackaged
 # Nothing here
 ```
+
+Note: with `sbt-assembly` 0.14.10, the behavior of this test is the same as Test 4 (Netty classes are actually renamed but the references in the Azure classes are not updated!)
 
 ## Test 3 (inLibrary + inProject - "azure-storage-blob" only)
 ```
